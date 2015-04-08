@@ -1,6 +1,12 @@
 package com.example.micha.pierwszaapka;
 /**
  * Autorzy
+ * Magdalena Kaniewska
+ * Michał Michalak
+ * Hubert Scibor
+ * Wosjkowa Akademia Techniczna
+ * Grupa E2C2S1
+ * Laboratorium Programowanie Urządzeń Mobilnych
  *
  */
 
