@@ -7,7 +7,7 @@ package com.example.micha.pierwszaapka;
  * Wosjkowa Akademia Techniczna
  * Grupa E2C2S1
  * Laboratorium Programowanie Urządzeń Mobilnych
- *
+ *sasasasa
  */
 
 import android.support.v7.app.ActionBarActivity;
@@ -43,6 +43,9 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
+
+
 
         return super.onOptionsItemSelected(item);
     }
