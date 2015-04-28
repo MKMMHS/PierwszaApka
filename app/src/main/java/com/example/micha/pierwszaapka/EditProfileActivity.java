@@ -1,14 +1,4 @@
 package com.example.micha.pierwszaapka;
-/**
- * Autorzy
- * Magdalena Kaniewska
- * Michał Michalak
- * Hubert Scibor
- * Wosjkowa Akademia Techniczna
- * Grupa E2C2S1
- * Laboratorium Programowanie Urządzeń Mobilnych
- *
- */
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -16,22 +6,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 
 
-public class MainActivity extends ActionBarActivity {
+public class EditProfileActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_edit_profile);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_edit_profile, menu);
         return true;
     }
 
@@ -47,13 +36,11 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
-
-
-
         return super.onOptionsItemSelected(item);
     }
 
-    public void logInOnClick(View view) {
+    //potwierdz edycje
+    public void acceptEdit(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
 
         startActivity(intent);
