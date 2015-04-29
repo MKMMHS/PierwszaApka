@@ -8,7 +8,6 @@ package com.example.micha.pierwszaapka;
  * Grupa E2C2S1
  * Laboratorium Programowanie Urządzeń Mobilnych
  *
- *
  */
 
 import android.content.Intent;
