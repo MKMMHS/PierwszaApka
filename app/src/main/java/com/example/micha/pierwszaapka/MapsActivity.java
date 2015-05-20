@@ -14,10 +14,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity{
+public class MapsActivity extends FragmentActivity {
 
 
     private GoogleMap mMap;
+// Get the LocationManager object from the System Service LOCATION_SERVICE
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class MapsActivity extends FragmentActivity{
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
                 setUpMap();
+                mMap.setMyLocationEnabled(true);
             }
         }
     }
