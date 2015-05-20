@@ -3,6 +3,7 @@ package com.example.micha.pierwszaapka;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -12,12 +13,15 @@ import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity {
 
-
+    private int i=0;
+    private float p,q;
     private GoogleMap mMap;
+
 // Get the LocationManager object from the System Service LOCATION_SERVICE
 
     @Override
@@ -62,9 +66,9 @@ public class MapsActivity extends FragmentActivity {
             if (mMap != null) {
                 setUpMap();
                 mMap.setMyLocationEnabled(true);
-            }
-        }
-    }
+
+
+        }}}
 
     /**
      * This is where we can add markers or lines, add listeners or move the camera. In this case, we
@@ -74,12 +78,19 @@ public class MapsActivity extends FragmentActivity {
      */
     private void setUpMap() {
 
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.252798, 20.893635)).title("Marcin"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.252972,20.895915)).title("Krzysiek"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.252249,20.905533)).title("Grzesiek"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.254807,20.90182)).title("Marta"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.261256,20.894739)).title("Asia"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.254893, 20.896005)).title("Ola"));
+        //for (i=0; i<100; i++) {
+            p= 52.252798F;
+            q= 20.893635F;
+            mMap.addMarker(new MarkerOptions().position(new LatLng(p, q)).title("Marcin"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(52.252972,20.895915)).title("Krzysiek"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(52.252249,20.905533)).title("Grzesiek"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(52.254807,20.90182)).title("Marta"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(52.261256,20.894739)).title("Asia"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(52.254893, 20.896005)).title("Ola"));
+
+
+        //}
+
     }
 
 }
