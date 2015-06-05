@@ -73,12 +73,12 @@ public class MapsActivity extends FragmentActivity {
 //                        .fromResource(R.drawable.circles)));
 //
 //
-//        final LatLng MELBOURNE = new LatLng(-37.81319, 144.96298);
-//        Marker melbourne = mMap.addMarker(new MarkerOptions()
-//                .position(MELBOURNE)
-//                .title("Melbourne"));
-//        //View.(R.drawable.circles);
-//        melbourne.showInfoWindow();
+        final LatLng MELBOURNE = new LatLng(-37.81319, 144.96298);
+        Marker melbourne = mMap.addMarker(new MarkerOptions()
+                .position(MELBOURNE)
+                .title("Melbourne"));
+        //View.(R.drawable.circles);
+        melbourne.showInfoWindow();
 //
 //        //}
 //        mMap.addMarker(new MarkerOptions()
