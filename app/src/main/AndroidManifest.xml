@@ -32,10 +32,6 @@
             android:label="@string/title_activity_menu" >
         </activity>
         <activity
-            android:name=".SignInActivity"
-            android:label="@string/title_activity_sign_in" >
-        </activity>
-        <activity
             android:name=".EditProfileActivity"
             android:label="@string/title_activity_edit_profile" >
         </activity>

@@ -10,6 +10,7 @@ package com.example.micha.pierwszaapka;
  *
  */
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,9 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    public static final String LOG = "adam";
+    public static final String PASS = "adam";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +60,28 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void logInOnClick(View view) {
-        Intent intent = new Intent(this, MenuActivity.class);
 
-        startActivity(intent);
+        EditText logowanie = (EditText) findViewById(R.id.editText2);
+        String LOGIN = logowanie.getText().toString();
+
+        EditText logowanie2 = (EditText) findViewById(R.id.editText);
+        String PASSWORD = logowanie2.getText().toString();
+
+        if (LOGIN.equals(LOG)) {
+            if (PASSWORD.equals(PASS)) {
+                Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
+            }
+            else {
+                Context context = getApplicationContext();
+                Toast.makeText(context, "Podane hasło jest nieprawidłowe. Spróbuj ponownie! :)", Toast.LENGTH_LONG).show();
+            }
+
+        }
+        else{
+            Context context = getApplicationContext();
+            Toast.makeText(context, "Podany login lub hasło jest nieprawidłowe. Spróbuj ponownie! :)", Toast.LENGTH_LONG).show();
+
+        }
     }
 }

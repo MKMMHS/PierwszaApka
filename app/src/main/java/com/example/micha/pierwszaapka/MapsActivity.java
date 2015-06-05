@@ -2,32 +2,39 @@ package com.example.micha.pierwszaapka;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
-import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity {
 
+    private ViewGroup infoWindow;
+    private TextView infoTitle;
+    private TextView infoSnippet;
     private int i=0;
     private float p,q;
     private GoogleMap mMap;
 
-// Get the LocationManager object from the System Service LOCATION_SERVICE
+    public void onMapReady(GoogleMap map) {
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(10, 10))
+                .title("Hello world"));
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_maps);
         setUpMapIfNeeded();
 
@@ -38,59 +45,52 @@ public class MapsActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
         setUpMapIfNeeded();
+
     }
 
-    /**
-     * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
-     * installed) and the map has not already been instantiated.. This will ensure that we only ever
-     * call {@link #setUpMap()} once when {@link #mMap} is not null.
-     * <p>
-     * If it isn't installed {@link SupportMapFragment} (and
-     * {@link com.google.android.gms.maps.MapView MapView}) will show a prompt for the user to
-     * install/update the Google Play services APK on their device.
-     * <p>
-     * A user can return to this FragmentActivity after following the prompt and correctly
-     * installing/updating/enabling the Google Play services. Since the FragmentActivity may not
-     * have been completely destroyed during this process (it is likely that it would only be
-     * stopped or paused), {@link #onCreate(Bundle)} may not be called again so we should call this
-     * method in {@link #onResume()} to guarantee that it will be called.
-     */
     private void setUpMapIfNeeded() {
-        // Do a null check to confirm that we have not already instantiated the map.
-
+        if (mMap != null) {
+            return;
+        }
+        mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         if (mMap == null) {
-            // Try to obtain the map from the SupportMapFragment.
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
-                    .getMap();
-            // Check if we were successful in obtaining the map.
-            if (mMap != null) {
-                setUpMap();
-                mMap.setMyLocationEnabled(true);
+            return;
+        }
+        // Initialize map options. For example:
+        // mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        p = 52.252798F;
+        q = 20.893635F;
+        mMap.addMarker(new MarkerOptions().position(new LatLng(p, q)).title("Marcin").snippet("Telefon 798 998 234").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.252972, 20.895915)).title("Krzysiek").snippet("Telefon 690 221 123").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.252249, 20.905533)).title("Grzesiek").snippet("Telefon 502 333 765").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.254807, 20.90182)).title("Marta").snippet("Telefon 669 345 543").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.261256, 20.894739)).title("Asia").snippet("Telefon 500 221 908").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.254893, 20.896005)).title("Ola").snippet("Telefon 500 001 020").icon(BitmapDescriptorFactory.fromResource(R.drawable.circles)));
+
+//        final Marker ki = mMap.addMarker(new MarkerOptions()
+//                .position(new LatLng(50.08, 14.43))
+//                .icon(BitmapDescriptorFactory
+//                        .fromResource(R.drawable.circles)));
+//
+//
+//        final LatLng MELBOURNE = new LatLng(-37.81319, 144.96298);
+//        Marker melbourne = mMap.addMarker(new MarkerOptions()
+//                .position(MELBOURNE)
+//                .title("Melbourne"));
+//        //View.(R.drawable.circles);
+//        melbourne.showInfoWindow();
+//
+//        //}
+//        mMap.addMarker(new MarkerOptions()
+//                .position(new LatLng(50.08, 14.43))
+//                .icon(BitmapDescriptorFactory
+//                        .fromResource(R.drawable.circles)));
+//
+//        infoWindow = (ViewGroup)getLayoutInflater()
+//                .inflate(R.layout.custom_info_contents, null);
+}
 
 
-        }}}
 
-    /**
-     * This is where we can add markers or lines, add listeners or move the camera. In this case, we
-     * just add a marker near Africa.
-     * <p>
-     * This should only be called once and when we are sure that {@link #mMap} is not null.
-     */
-    private void setUpMap() {
-
-        //for (i=0; i<100; i++) {
-            p= 52.252798F;
-            q= 20.893635F;
-            mMap.addMarker(new MarkerOptions().position(new LatLng(p, q)).title("Marcin"));
-            mMap.addMarker(new MarkerOptions().position(new LatLng(52.252972,20.895915)).title("Krzysiek"));
-            mMap.addMarker(new MarkerOptions().position(new LatLng(52.252249,20.905533)).title("Grzesiek"));
-            mMap.addMarker(new MarkerOptions().position(new LatLng(52.254807,20.90182)).title("Marta"));
-            mMap.addMarker(new MarkerOptions().position(new LatLng(52.261256,20.894739)).title("Asia"));
-            mMap.addMarker(new MarkerOptions().position(new LatLng(52.254893, 20.896005)).title("Ola"));
-
-
-        //}
-
-    }
 
 }
