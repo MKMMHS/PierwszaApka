@@ -6,10 +6,12 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -25,6 +27,10 @@ public class MapsActivity extends FragmentActivity {
     private int i=0;
     private float p,q;
     private GoogleMap mMap;
+    private Button infoButton;
+    private OnInfoWindowElemTouchListener infoButtonListener;
+    
+
 
     public void onMapReady(GoogleMap map) {
         map.addMarker(new MarkerOptions()
@@ -39,6 +45,42 @@ public class MapsActivity extends FragmentActivity {
         setUpMapIfNeeded();
 
 
+        //---------------------------------------------------------------------------------------------
+
+        this.infoWindow = (ViewGroup)getLayoutInflater().inflate(R.layout.info_window, null);
+        this.infoTitle = (TextView)infoWindow.findViewById(R.id.title);
+        this.infoSnippet = (TextView)infoWindow.findViewById(R.id.snippet);
+        this.infoButton = (Button)infoWindow.findViewById(R.id.button);
+
+
+        mMap.setInfoWindowAdapter(new InfoWindowAdapter() {
+
+            // Use default InfoWindow frame
+            @Override
+            public View getInfoWindow(Marker marker) {
+                return null;
+            }
+
+            // Defines the contents of the InfoWindow
+            @Override
+            public View getInfoContents(Marker marker) {
+
+                // Getting view from the layout file info_window_layout
+                View v = getLayoutInflater().inflate(R.layout.info_window, null);
+
+                // Getting reference to the TextView to set title
+                //TextView note = (TextView) v.findViewById(R.id.note);
+
+                //note.setText(marker.getTitle() );
+
+                // Returning the view containing InfoWindow contents
+                return v;
+
+            }
+
+        });
+        // ----------------------------------------------------------------------------------------------
+
     }
 
     @Override
@@ -46,11 +88,17 @@ public class MapsActivity extends FragmentActivity {
         super.onResume();
         setUpMapIfNeeded();
 
+
     }
 
     private void setUpMapIfNeeded() {
         if (mMap != null) {
             return;
+
+//            @Override;
+//        public abstract View getInfoContents (Marker marker){
+//                View v = getLayoutInflater().inflate(R.layout.custom_info_contents,null);
+//            }
         }
         mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         if (mMap == null) {
@@ -72,13 +120,15 @@ public class MapsActivity extends FragmentActivity {
 //                .icon(BitmapDescriptorFactory
 //                        .fromResource(R.drawable.circles)));
 //
-//
+////
         final LatLng MELBOURNE = new LatLng(-37.81319, 144.96298);
         Marker melbourne = mMap.addMarker(new MarkerOptions()
                 .position(MELBOURNE)
                 .title("Melbourne"));
+        infoWindow = (ViewGroup)getLayoutInflater().inflate(R.layout.custom_info_contents, null);
+
         //View.(R.drawable.circles);
-        melbourne.showInfoWindow();
+        //melbourne.showInfoWindow();
 //
 //        //}
 //        mMap.addMarker(new MarkerOptions()
@@ -86,11 +136,7 @@ public class MapsActivity extends FragmentActivity {
 //                .icon(BitmapDescriptorFactory
 //                        .fromResource(R.drawable.circles)));
 //
-//        infoWindow = (ViewGroup)getLayoutInflater()
-//                .inflate(R.layout.custom_info_contents, null);
-}
-
-
-
+//
+    }
 
 }

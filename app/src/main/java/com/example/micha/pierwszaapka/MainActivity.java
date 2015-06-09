@@ -23,8 +23,8 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
-    public static final String LOG = "adam";
-    public static final String PASS = "adam";
+    public static final String LOG = "a";
+    public static final String PASS = "a";
 
 
     @Override

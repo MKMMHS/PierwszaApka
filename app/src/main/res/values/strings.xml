@@ -2,7 +2,7 @@
     <string name="app_name">User Follower</string>
 
     <string name="hello">Witaj w User Follower!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ustawienia</string>
     <string name="log_in">Zaloguj</string>
     <string name="signIn">Zarejestruj</string>
     <string name="title_activity_menu">Menu</string>
