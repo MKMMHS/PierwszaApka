@@ -1,7 +1,9 @@
 package com.example.micha.pierwszaapka;
 
+import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,7 +16,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity {
 
     private String marcin = "Marcin";
-//    private ViewGroup infoWindow;
 //    private TextView infoTitle;
 //    private TextView infoSnippet;
     private int i=0;
@@ -117,7 +118,7 @@ public class MapsActivity extends FragmentActivity {
          mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         p = 52.252798F;
         q = 20.893635F;
-        mMap.addMarker(new MarkerOptions().position(new LatLng(p, q)).title(marcin).snippet("Telefon 798 998 234\n Zainteresowania: siatkowka").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(p, q)).title(marcin).snippet("Telefon 798 998 234\nZainteresowania: siatkowka").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
         mMap.addMarker(new MarkerOptions().position(new LatLng(52.252972, 20.895915)).title("Krzysiek").snippet("Telefon 690 221 123 Zainteresowania: pilka nozna").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
         mMap.addMarker(new MarkerOptions().position(new LatLng(52.252249, 20.905533)).title("Grzesiek").snippet("Telefon 502 333 765\n Zainteresowania: ksiazki").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
         mMap.addMarker(new MarkerOptions().position(new LatLng(52.254807, 20.90182)).title("Marta").snippet("Telefon 669 345 543\n Zainteresowania: gokardy").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
