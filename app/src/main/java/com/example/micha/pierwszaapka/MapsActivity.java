@@ -2,41 +2,31 @@ package com.example.micha.pierwszaapka;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity {
 
-    private ViewGroup infoWindow;
-    private TextView infoTitle;
-    private TextView infoSnippet;
+    private String marcin = "Marcin";
+//    private ViewGroup infoWindow;
+//    private TextView infoTitle;
+//    private TextView infoSnippet;
     private int i=0;
     private float p,q;
     private GoogleMap mMap;
-    private Button infoButton;
-    private OnInfoWindowElemTouchListener infoButtonListener;
+//    private Button infoButton;
+//    private OnInfoWindowElemTouchListener infoButtonListener;
     
 
 
-    public void onMapReady(GoogleMap map) {
-        map.addMarker(new MarkerOptions()
-                .position(new LatLng(10, 10))
-                .title("Hello world"));
-    }
+//    public void onMapReady(GoogleMap map) {
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,42 +35,61 @@ public class MapsActivity extends FragmentActivity {
         setUpMapIfNeeded();
 
 
-        //---------------------------------------------------------------------------------------------
-
-        this.infoWindow = (ViewGroup)getLayoutInflater().inflate(R.layout.info_window, null);
-        this.infoTitle = (TextView)infoWindow.findViewById(R.id.title);
-        this.infoSnippet = (TextView)infoWindow.findViewById(R.id.snippet);
-        this.infoButton = (Button)infoWindow.findViewById(R.id.button);
-
-
-        mMap.setInfoWindowAdapter(new InfoWindowAdapter() {
-
-            // Use default InfoWindow frame
-            @Override
-            public View getInfoWindow(Marker marker) {
-                return null;
-            }
-
-            // Defines the contents of the InfoWindow
-            @Override
-            public View getInfoContents(Marker marker) {
-
-                // Getting view from the layout file info_window_layout
-                View v = getLayoutInflater().inflate(R.layout.info_window, null);
-
-                // Getting reference to the TextView to set title
-                //TextView note = (TextView) v.findViewById(R.id.note);
-
-                //note.setText(marker.getTitle() );
-
-                // Returning the view containing InfoWindow contents
-                return v;
-
-            }
-
-        });
-        // ----------------------------------------------------------------------------------------------
-
+        if (mMap != null) {
+            setUpMapIfNeeded();
+            mMap.setMyLocationEnabled(true);
+        }
+//
+//        //---------------------------------------------------------------------------------------------
+//
+//        this.infoWindow = (ViewGroup)getLayoutInflater().inflate(R.layout.info_window, null);
+//        this.infoTitle = (TextView)infoWindow.findViewById(R.id.title);
+//        this.infoSnippet = (TextView)infoWindow.findViewById(R.id.snippet);
+//        this.infoButton = (Button)infoWindow.findViewById(R.id.button);
+//
+//
+//        mMap.setInfoWindowAdapter(new InfoWindowAdapter() {
+//
+//            // Use default InfoWindow frame
+//            @Override
+//            public View getInfoWindow(Marker marker) {
+//                return null;
+//            }
+//
+//            // Defines the contents of the InfoWindow
+//            @Override
+//            public View getInfoContents(Marker marker) {
+//
+//                // Getting view from the layout file info_window_layout
+//                mMap.addMarker(new MarkerOptions().position(new LatLng(52.252249, 20.905533)).title("Grzesiek").snippet("Telefon 502 333 765").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+//                View grzesiek = getLayoutInflater().inflate(R.layout.grzesiek, null);
+//
+////                View m = getLayoutInflater().inflate(R.layout.marcin, null);
+////                View ma = getLayoutInflater().inflate(R.layout.marta, null);
+////                View o = getLayoutInflater().inflate(R.layout.ola, null);
+////                View a = getLayoutInflater().inflate(R.layout.asia, null);
+////                View k = getLayoutInflater().inflate(R.layout.krzysiek, null);
+//
+//
+//                // Getting reference to the TextView to set title
+//                //TextView note = (TextView) v.findViewById(R.id.note);
+//
+//                //note.setText(marker.getTitle() );
+//
+//                // Returning the view containing InfoWindow contents
+//
+//
+//
+//                return grzesiek;
+//
+//
+//            }
+//
+//
+//        });
+//        // ----------------------------------------------------------------------------------------------
+//
+//
     }
 
     @Override
@@ -105,38 +114,15 @@ public class MapsActivity extends FragmentActivity {
             return;
         }
         // Initialize map options. For example:
-        // mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         p = 52.252798F;
         q = 20.893635F;
-        mMap.addMarker(new MarkerOptions().position(new LatLng(p, q)).title("Marcin").snippet("Telefon 798 998 234").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.252972, 20.895915)).title("Krzysiek").snippet("Telefon 690 221 123").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.252249, 20.905533)).title("Grzesiek").snippet("Telefon 502 333 765").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.254807, 20.90182)).title("Marta").snippet("Telefon 669 345 543").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.261256, 20.894739)).title("Asia").snippet("Telefon 500 221 908").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(52.254893, 20.896005)).title("Ola").snippet("Telefon 500 001 020").icon(BitmapDescriptorFactory.fromResource(R.drawable.circles)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(p, q)).title(marcin).snippet("Telefon 798 998 234\n Zainteresowania: siatkowka").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.252972, 20.895915)).title("Krzysiek").snippet("Telefon 690 221 123 Zainteresowania: pilka nozna").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.252249, 20.905533)).title("Grzesiek").snippet("Telefon 502 333 765\n Zainteresowania: ksiazki").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.254807, 20.90182)).title("Marta").snippet("Telefon 669 345 543\n Zainteresowania: gokardy").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.261256, 20.894739)).title("Asia").snippet("Telefon 500 221 908\n Zainteresowania: jazda konna").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(52.254893, 20.896005)).title("Ola").snippet("Telefon 500 001 020\n Zainteresowania: bieganie").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
 
-//        final Marker ki = mMap.addMarker(new MarkerOptions()
-//                .position(new LatLng(50.08, 14.43))
-//                .icon(BitmapDescriptorFactory
-//                        .fromResource(R.drawable.circles)));
-//
-////
-        final LatLng MELBOURNE = new LatLng(-37.81319, 144.96298);
-        Marker melbourne = mMap.addMarker(new MarkerOptions()
-                .position(MELBOURNE)
-                .title("Melbourne"));
-        infoWindow = (ViewGroup)getLayoutInflater().inflate(R.layout.custom_info_contents, null);
-
-        //View.(R.drawable.circles);
-        //melbourne.showInfoWindow();
-//
-//        //}
-//        mMap.addMarker(new MarkerOptions()
-//                .position(new LatLng(50.08, 14.43))
-//                .icon(BitmapDescriptorFactory
-//                        .fromResource(R.drawable.circles)));
-//
-//
-    }
-
+}
 }
