@@ -60,6 +60,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void logInOnClick(View view) {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
 
         EditText logowanie = (EditText) findViewById(R.id.editText2);
         String LOGIN = logowanie.getText().toString();
@@ -69,8 +71,8 @@ public class MainActivity extends ActionBarActivity {
 
         if (LOGIN.equals(LOG)) {
             if (PASSWORD.equals(PASS)) {
-                Intent intent = new Intent(this, MenuActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(this, MenuActivity.class);
+//                startActivity(intent);
             }
             else {
                 Context context = getApplicationContext();

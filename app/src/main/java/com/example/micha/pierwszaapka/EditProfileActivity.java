@@ -46,29 +46,30 @@ public class EditProfileActivity extends ActionBarActivity {
 
     //potwierdz edycje
     public void acceptEdit(View view) {
-
-
-
-        EditText logowanie2 = (EditText) findViewById(R.id.editText4);
-        String PASSWORD1 = logowanie2.getText().toString();
-
-        EditText logowanie3 = (EditText) findViewById(R.id.editText4);
-        String PASSWORD2 = logowanie3.getText().toString();
-
-
-            if (PASSWORD1.equals(PASSWORD2)) {
-
-                Context context = getApplicationContext();
-                Toast.makeText(context, "Hasla zostaly wprowadzone poprawnie :)", Toast.LENGTH_LONG).show();
-
-                Intent intent = new Intent(this, MenuActivity.class);
+        Intent intent = new Intent(this, MenuActivity.class);
                 startActivity(intent);
-            }
-            else {
-                Context context = getApplicationContext();
-                Toast.makeText(context, "Podane hasla nie s¹ zgodne, sprobuj ponownie.", Toast.LENGTH_LONG).show();
-            }
 
+
+//        EditText logowanie2 = (EditText) findViewById(R.id.editText4);
+//        String PASSWORD1 = logowanie2.getText().toString();
+//
+//        EditText logowanie3 = (EditText) findViewById(R.id.editText4);
+//        String PASSWORD2 = logowanie3.getText().toString();
+//
+//
+//            if (PASSWORD1.equals(PASSWORD2)) {
+//
+//                Context context = getApplicationContext();
+//                Toast.makeText(context, "Hasla zostaly wprowadzone poprawnie :)", Toast.LENGTH_LONG).show();
+//
+//                Intent intent = new Intent(this, MenuActivity.class);
+//                startActivity(intent);
+//            }
+//            else {
+//                Context context = getApplicationContext();
+//                Toast.makeText(context, "Podane hasla nie s¹ zgodne, sprobuj ponownie.", Toast.LENGTH_LONG).show();
+//            }
+//
         }
 
 
