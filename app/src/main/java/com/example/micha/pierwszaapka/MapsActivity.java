@@ -3,6 +3,7 @@ package com.example.micha.pierwszaapka;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
+
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -23,9 +24,6 @@ public class MapsActivity extends FragmentActivity {
         setContentView(R.layout.activity_maps);
         setUpMapIfNeeded();
 
-//        final MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
-//        final MapWrapperLayout mapWrapperLayout = (MapWrapperLayout) findViewById(R.id.map_relative_layout);
-
         if (mMap != null) {
             setUpMapIfNeeded();
             mMap.setMyLocationEnabled(true);
@@ -40,10 +38,9 @@ public class MapsActivity extends FragmentActivity {
 
     }
 
-    public void onButtonClickRefresh(View view){
+    public void onButtonClickRefresh(View view) throws InterruptedException {
 
         i=i+0.0006F;
-
         this.mMap.clear();
 
         Marker mar = mMap.addMarker(new MarkerOptions().position(new LatLng(52.252922 - i, 20.895920 + i)).title(marcin).snippet("Telefon 798 998 234\nZainteresowania: siatkowka").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
@@ -52,6 +49,7 @@ public class MapsActivity extends FragmentActivity {
         Marker marti = mMap.addMarker(new MarkerOptions().position(new LatLng(52.254807 + i, 20.90182 - i)).title("Marta").snippet("Telefon 669 345 543\n Zainteresowania: gokardy").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
         Marker aska = mMap.addMarker(new MarkerOptions().position(new LatLng(52.261256 - i, 20.894739 + i)).title("Asia").snippet("Telefon 500 221 908\n Zainteresowania: jazda konna").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
         Marker olo = mMap.addMarker(new MarkerOptions().position(new LatLng(52.254893 + i, 20.896005 - i)).title("Ola").snippet("Telefon 500 001 020\n Zainteresowania: bieganie").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+        Thread.sleep(3000);
     }
 
     private void setUpMapIfNeeded() {
@@ -63,8 +61,6 @@ public class MapsActivity extends FragmentActivity {
         if (mMap == null) {
             return;
         }
-
-}
-
+    }
 }
 

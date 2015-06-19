@@ -13,4 +13,10 @@
     <string name="log_in">Login</string>
     <string name="newLogin">New Login</string>
     <string name="signIn">Registion</string>
+    <string name="bladhaslaeditprofile">Error: </string>
+    <string name="bladhaslailoginumain">The specified username or password is incorrect. Try again! :)</string>
+    <string name="bladhaslamain">Incorrect password. Try again! :)</string>
+    <string name="prawidlowehasloeditprofile">Password were entered correctly :)</string>
+    <string name="refresh">Refresh</string>
+    <string name="zmianaHasla">To change your password enter the new password twice below</string>
 </resources>

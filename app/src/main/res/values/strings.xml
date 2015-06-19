@@ -22,5 +22,9 @@
     <string name="test_string" ><![CDATA[<font color="%1$s"><b>Test/b></font>]]> String</string>
     <string name="refresh">Odswiez</string>
     <string name="zmianaHasla">Aby zmienic haslo wprowadz dwukrotnie nowe haslo ponizej</string>
+    <string name="bladhaslaeditprofile">Błąd: Powtórz hasło.</string>
+    <string name="prawidlowehasloeditprofile">Hasla zostaly wprowadzone poprawnie :)</string>
+    <string name="bladhaslamain">Podane hasło jest nieprawidłowe. Spróbuj ponownie! :)</string>
+    <string name="bladhaslailoginumain">Podany login lub hasło jest nieprawidłowe. Spróbuj ponownie! :)</string>
 
 </resources>

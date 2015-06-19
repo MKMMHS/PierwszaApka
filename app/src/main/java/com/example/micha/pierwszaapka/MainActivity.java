@@ -1,11 +1,14 @@
 package com.example.micha.pierwszaapka;
 /**
  * Autorzy
+ *
  * Magdalena Kaniewska
  * Michał Michalak
  * Hubert Scibor
+ *
  * Wosjkowa Akademia Techniczna
  * Grupa E2C2S1
+ *
  * Laboratorium Programowanie Urządzeń Mobilnych
  *
  */
@@ -23,9 +26,9 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
+    //------ DEKLARACJA LOGINU I HASLA ------//
     public static final String LOG = "admin";
     public static final String PASS = "admin";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,35 +36,31 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
-
-
-
         return super.onOptionsItemSelected(item);
     }
 
     public void logInOnClick(View view) {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
+
+        //------ LOGOWANIE BEZ HASLA DLA POTRZEB TESTOW ------//
+
+//        Intent intent = new Intent(this, MenuActivity.class);
+//        startActivity(intent);
+
+
 
         EditText logowanie = (EditText) findViewById(R.id.editText2);
         String LOGIN = logowanie.getText().toString();
@@ -71,18 +70,17 @@ public class MainActivity extends ActionBarActivity {
 
         if (LOGIN.equals(LOG)) {
             if (PASSWORD.equals(PASS)) {
-//                Intent intent = new Intent(this, MenuActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
             }
             else {
                 Context context = getApplicationContext();
-                Toast.makeText(context, "Podane hasło jest nieprawidłowe. Spróbuj ponownie! :)", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, getString(R.string.bladhaslamain), Toast.LENGTH_LONG).show();
             }
-
         }
         else{
             Context context = getApplicationContext();
-            Toast.makeText(context, "Podany login lub hasło jest nieprawidłowe. Spróbuj ponownie! :)", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, getString(R.string.bladhaslailoginumain), Toast.LENGTH_LONG).show();
 
         }
     }
