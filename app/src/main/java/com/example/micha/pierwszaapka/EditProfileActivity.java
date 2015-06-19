@@ -1,14 +1,12 @@
 package com.example.micha.pierwszaapka;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
+
 
 
 public class EditProfileActivity extends ActionBarActivity {
@@ -67,7 +65,7 @@ public class EditProfileActivity extends ActionBarActivity {
 //            }
 //            else {
 //                Context context = getApplicationContext();
-//                Toast.makeText(context, "Podane hasla nie s¹ zgodne, sprobuj ponownie.", Toast.LENGTH_LONG).show();
+//
 //            }
 //
         }
