@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">User Follower</string>
+    <string name="action_settings">Settings</string>
+    <string name="acceptEdit">Accept</string>
+    <string name="checkBox">Remember me</string>
+    <string name="editActivity">Edition profile</string>
+    <string name="editProfile">Edit profile</string>
+    <string name="followUser">Follow  users</string>
+    <string name="hello">Welcome in User Follower</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="logOut">Logout</string>
+    <string name="log_in">Login</string>
+    <string name="newLogin">New Login</string>
+    <string name="signIn">Registion</string>
+    <string name="bladhaslaeditprofile">Error: </string>
+    <string name="bladhaslailoginumain">The specified username or password is incorrect. Try again! :)</string>
+    <string name="bladhaslamain">Incorrect password. Try again! :)</string>
+    <string name="prawidlowehasloeditprofile">Password were entered correctly :)</string>
+    <string name="refresh">Refresh</string>
+    <string name="zmianaHasla">To change your password enter the new password twice below</string>
+</resources>

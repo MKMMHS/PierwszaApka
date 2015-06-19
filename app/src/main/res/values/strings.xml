@@ -1,6 +1,30 @@
 <resources>
-    <string name="app_name">PierwszaApka</string>
+    <string name="app_name">User Follower</string>
+
+    <string name="hello">Witaj w User Follower!</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="log_in">Zaloguj</string>
+    <string name="signIn">Zarejestruj</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="checkBox">Zapamiętaj mnie</string>
+    <string name="editProfile">Edytuj profil</string>
+    <string name="followUser">Śledź użytkowników</string>
+    <string name="logOut">Wyloguj</string>
+    <string name="title_activity_sign_in">SignInActivity</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="newLogin">Nowy Login</string>
+    <string name="acceptEdit">Potwierdź</string>
+    <string name="editActivity">Edycja profilu</string>
+    <string name="test_string" ><![CDATA[<font color="%1$s"><b>Test/b></font>]]> String</string>
+    <string name="refresh">Odswiez</string>
+    <string name="zmianaHasla">Aby zmienic haslo wprowadz dwukrotnie nowe haslo ponizej</string>
+    <string name="bladhaslaeditprofile">Błąd: Powtórz hasło.</string>
+    <string name="prawidlowehasloeditprofile">Hasla zostaly wprowadzone poprawnie :)</string>
+    <string name="bladhaslamain">Podane hasło jest nieprawidłowe. Spróbuj ponownie! :)</string>
+    <string name="bladhaslailoginumain">Podany login lub hasło jest nieprawidłowe. Spróbuj ponownie! :)</string>
+
 </resources>
